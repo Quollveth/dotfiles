@@ -1,0 +1,112 @@
+alias sudo='sudo '	# lets me use sudo with aliases
+
+#
+## QUALITY OF LIFE
+#
+
+alias svi='sudo nvim'
+
+
+# add ip to whoami
+alias whoami="whoami && curl ident.me"
+
+
+# pretty colors
+alias ls='ls -a --color=auto'
+alias ll='ls -la --color=auto'
+alias grep='grep --color=auto'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto' 
+
+
+# confirm overwrite
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+
+# human readable disk
+alias df='df -h'
+alias free='free -m'
+
+
+# top process by memory
+alias psmem='ps auxf | sort -nr -k 4 | head -5'
+#top process by cpu
+alias pscpu='ps auxf | sort -nr -k 3 | head -5'
+
+
+# lazy
+alias h='history'
+alias j='jobs -l'
+alias cls='clear'
+alias clr='clear'
+
+
+# cat path variables
+alias path='echo -e ${PATH//:/\\n}'
+
+
+# who has the time to remember timestamp formatting
+alias nowtime='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+alias timestamp='date +%Y-%m-%dT%H-%M-%S'
+
+
+# limit ping
+alias ping='ping -c 5'
+
+
+# we can have some ddos as a treat
+alias fastping='ping -c 100 -s.2'
+
+
+# use default app as if opened from gui fm
+alias open='xdg-open'
+
+
+# create parent directories as needed
+alias mkdir='mkdir -pv'
+
+
+# my file now
+alias gimme='sudo chown $USER:$USER'
+
+
+# make unified diff the default
+alias diff='diff -u'
+
+
+#
+## APPLICATIONS #
+#
+
+alias fetch='fastfetch'
+alias python='python3'
+
+# use 7zip to unzip to directory of same name
+7zip() {
+	filename="$1"
+	7z x "$filename" -o"${filename%.*}"
+}
+
+
+#
+## UTILITIES
+#
+
+# serves current directory on 0.0.0.0:8000
+alias quick-serve="python -m http.server"
+
+
+
+#
+## DOCKER
+#
+
+dock-run() { sudo docker run -i -t --privileged $@ ;}
+dock-exec() { sudo docker exec -i -t $@ /bin/bash ;}
+dock-log() { sudo docker logs --tail=all -f $@ ;}
+dock-port() { sudo docker port $@ ;}
+dock-rmc() { sudo docker rm sudo docker ps -qa --filter 'status=exited' ;}
+dock-rmi() { sudo docker rmi -f sudo docker images | grep '^<none>' | awk '{print $3}' ;}

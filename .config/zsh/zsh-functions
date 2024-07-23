@@ -1,0 +1,41 @@
+# Goes up the directory tree; up 3 = cd ../../..
+function up {
+	local counter=${1:-1}
+	local dirup="../"
+	local out=""
+
+	while (( counter > 0 )); do
+	        let counter--
+		out="${out}$dirup"
+	done
+
+	cd $out
+}
+
+
+# Encode into url
+urlencode() {
+    	setopt localoptions extendedglob
+        input=( ${(s::)1} )
+	print ${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-])/%${(l:2::0:)$(([##16]#match))}}
+}
+
+
+# Google something
+function google {
+	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
+}
+
+
+
+# Prints a separator banner as wide as the window
+function hr {
+	print ${(l:COLUMNS::=:)}
+}
+
+# Use lf as a visual directory selector (zsh only probably?)
+lfcd () {
+	cd "$(lf -print-last-dir "$@")"
+}
+bindkey -s '^o' 'lfcd\n'
+

@@ -1,0 +1,39 @@
+[{
+    "layer": "top",
+    "position":"top",
+    "spacing":4,
+    "name":"topbar",
+    "modules-left": [
+    	"custom/logo",
+    	"hyprland/workspaces",
+	"mpris",
+    ],
+
+    "modules-center":[
+	"clock#date",
+	"clock#time",
+    ],
+
+    "modules-right":[
+    	"privacy",
+	"pulseaudio#volume",
+	"custom/updates",
+    ],
+
+    "include": ["$HOME/.config/waybar/modules"]
+},
+
+{
+    "position":"bottom",
+    "layer":"top",
+    "spacing":4,
+    "name":"bottombar",
+
+    "modules-right":[
+	"cpu",
+	"memory",
+	"temperature",
+    ],
+
+    "include":["$HOME/.config/waybar/modules"]
+}]
