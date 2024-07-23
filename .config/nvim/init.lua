@@ -1,4 +1,4 @@
-require("my.settings")
+require("settings")
 
 -- Initialize lazy
 
