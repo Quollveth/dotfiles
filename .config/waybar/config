@@ -30,7 +30,8 @@
     "name":"bottombar",
 
     "modules-right":[
-	"cpu",
+        "custom/gpu",
+        "cpu",
 	"memory",
 	"temperature",
     ],

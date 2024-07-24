@@ -44,12 +44,12 @@
 	},
 
 	"custom/updates": {
-			"format": "{icon} {} updates ",
-		        "return-type": "json",
-			"format-icons": {
-				"has-updates": "󰚰 ",
-				"updated": " "
-			},
+               	"format": "{icon} {} ",
+	        "return-type": "json",
+		"format-icons": {
+			"has-updates": "󰚰 ",
+			"updated": " "
+		},
 		"exec-if": "which waybar-module-pacman-updates",
 		"exec": "waybar-module-pacman-updates  --interval-seconds 5 --network-interval-seconds 300"
 
@@ -60,19 +60,26 @@
 		"format-paused":"󰏤 {dynamic}",
 		"format-stopped":"⏹ {dynamic}",
 		"dynamic-len":50,
-		"ignored-players":["firefox"]
+		"ignored-players":["firefox"],
+                "dynamic-order":["title","artist"]
 	},
 
 	"cpu":{
-		"format":"  {usage}%",
+		"format":"CPU: {usage}%",
 	},
 	
 	"memory":{
-		"format":"󰍛 {percentage}%"
+		"format":"RAM: {percentage}%"
 	},
 
 	"temperature":{
 		"format":" {temperatureC}°C"
-	}
+	},
+        "custom/gpu":{
+               "exec":"cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
+               "format": "GPU: {}%",
+               "return-type":"",
+               "interval":1
+        }
 
 }
