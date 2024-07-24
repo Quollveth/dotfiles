@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Open explorer
+-- Open explorer, stays here even tho i have nvim-tree for sm reason
 vim.keymap.set("n", "<leader>ep", vim.cmd.Ex)
 
 -- Move line up and down
