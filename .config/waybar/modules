@@ -5,6 +5,15 @@
 		"on-click":"wofi --show drun -x -y"
 	},
 
+        "hyprland/workspaces":{
+                
+        },
+
+
+
+
+
+
 	"pulseaudio#volume":{
 		"format":"  {volume}%",
 		"on-click-right":"pavucontrol --tab 1"
@@ -33,16 +42,16 @@
 		]
 	},
 
-	"clock#time": {
-		"interval":10,
-		"format": "{:%H:%M}"
-	},
-	"clock#date":{
-		"interval":50,
-		"format":"{:%e %b}",
-		"tooltip-format":"{:%A, %e of %B %Y}"
-	},
 
+        "clock#time": {
+                "interval":10,
+                "format": "{:%H:%M}"
+        },
+        "clock#date":{
+                "interval":50,
+                "format":"{:%e %b}",
+                "tooltip-format":"{:%A, %e of %B %Y}"
+        },
 	"custom/updates": {
                	"format": "{icon} {} ",
 	        "return-type": "json",
