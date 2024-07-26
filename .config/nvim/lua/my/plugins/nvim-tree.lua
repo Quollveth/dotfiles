@@ -14,7 +14,7 @@ return {
                                 width = 60,
                         },
                 })
-
+                vim.keymap.set("n","<leader>ef","<cmd>NvimTreeFocus<CR>")
                 vim.keymap.set("n","<leader>ee","<cmd>NvimTreeToggle<CR>")
                 vim.keymap.set("n","<leader>ec","<cmd>NvimTreeCollapse<CR>")
                 vim.keymap.set("n","<leader>er","<cmd>NvimTreeRefresh(CR)>")
