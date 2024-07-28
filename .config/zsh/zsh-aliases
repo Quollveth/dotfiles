@@ -90,10 +90,13 @@ alias python='python3'
 	7z x "$filename" -o"${filename%.*}"
 }
 
+alias spotify='spotify_player'
 
 #
 ## UTILITIES
 #
+
+alias icat='kitten icat'
 
 # serves current directory on 0.0.0.0:8000
 alias quick-serve="python -m http.server"
