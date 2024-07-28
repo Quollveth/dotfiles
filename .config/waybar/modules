@@ -10,7 +10,9 @@
         },
 
 
-
+        "wlr/taskbar":{
+                "icon-theme":"Numix-Circle"
+        },
 
 
 

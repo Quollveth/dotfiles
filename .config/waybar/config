@@ -1,24 +1,25 @@
 [{
     "layer": "top",
     "position":"top",
-            "spacing":8,
+    "spacing":8,
     "name":"topbar",
+
+
     "modules-left": [
     	"custom/logo",
-    	"hyprland/workspaces",
 	"mpris",
     ],
 
     "modules-center":[
-	"clock#date",
-	"clock#time",
+        "hyprland/workspaces",
     ],
 
     "modules-right":[
-    	"privacy",
-	"pulseaudio#volume",
+        "pulseaudio#volume",
 	"custom/updates",
+        "clock#time",
     ],
+
 
     "include": ["$HOME/.config/waybar/modules"]
 },
@@ -26,8 +27,12 @@
 {
     "position":"bottom",
     "layer":"top",
-    "spacing":4,
+    "spacing":6,
     "name":"bottombar",
+
+    "modules-left":[
+        "privacy",
+    ],
 
     "modules-right":[
         "custom/gpu",
