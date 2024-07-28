@@ -88,6 +88,7 @@ window#waybar {
         margin-bottom:6px;
         border-radius:20px;
         background-color:rgba(73, 77, 100, 0.5);
+        margin-right:5px;
 }
 
 .topbar .modules-right > *:first-child {
@@ -104,3 +105,40 @@ window#waybar {
         padding-left:10px;
         padding-right:10px;
 }
+
+.bottombar .modules-left { 
+        margin-left:5px;
+        padding-left:8px;
+        padding-right:10px;
+        border-radius:20px;
+        padding-top:3px;
+        padding-bottom:3px;
+
+        margin-top:3px;
+        margin-bottom:3px;
+}
+
+.bottombar .modules-left > *:first-child {
+        border-top-left-radius:20px;
+        border-bottom-left-radius:20px;
+}
+
+.bottombar .modules-left > *:last-child {
+        border-top-right-radius:20px;
+        border-bottom-right-radius:20px;
+}
+
+#privacy-item {
+        padding-left:2px; 
+        padding-left:2px;
+}
+
+#cpu,
+#memory,
+#temperature,
+#custom-gpu {
+        margin-left:3px;
+        margin-right:3px;
+}
+
+

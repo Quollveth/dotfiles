@@ -37,8 +37,8 @@
     "modules-right":[
         "custom/gpu",
         "cpu",
-	"memory",
-	"temperature",
+        "memory",
+        "temperature"
     ],
 
     "include":["$HOME/.config/waybar/modules"]
