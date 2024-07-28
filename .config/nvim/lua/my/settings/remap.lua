@@ -27,4 +27,4 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Make current shell script executable
-vim.keymap.set("n", "<leader>x", "<cmd>!cmod +x %<CR>", {silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true })
