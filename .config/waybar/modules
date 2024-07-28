@@ -47,7 +47,8 @@
 
         "clock#time": {
                 "interval":10,
-                "format": "{:%H:%M}"
+                "format": "{:%H:%M %a}",
+                "tooltip-format":"{:%A - %B %e, %Y}"
         },
         "clock#date":{
                 "interval":50,
