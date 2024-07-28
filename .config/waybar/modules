@@ -89,10 +89,12 @@
 		"format":" {temperatureC}°C"
 	},
         "custom/gpu":{
-               "exec":"cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
-               "format": "GPU: {}%",
-               "return-type":"",
-               "interval":1
+                "exec":"$XDG_CONFIG_HOME/waybar/custom_modules/custom-gpu.sh",
+                "return-type": "json",
+                "format": "GPU: {}",
+                "tooltip":"{tooltip}",
+                "interval": 2,
+                "on-click": "powerupp"
         },
         "custom/chip":{
                 "format":" ",
