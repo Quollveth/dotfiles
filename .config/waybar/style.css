@@ -16,8 +16,6 @@ window#waybar {
 
 .module {
         border-radius:0px;
-        margin-top:4px;
-        margin-bottom:6px;
         border:none;
 }
 
