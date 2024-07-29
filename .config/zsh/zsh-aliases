@@ -102,6 +102,17 @@ alias icat='kitten icat'
 alias quick-serve="python -m http.server"
 
 
+# Compile and run C file
+quick_make () 
+{ 
+    gcc -Wall -Wextra -pedantic -std=c11 -o "${1%.*}" "$1"
+    if [ $? -eq 0 ]; then
+        ./"${1%.*}"
+    else
+        echo "Compilation failed."
+    fi
+}
+
 
 #
 ## DOCKER
