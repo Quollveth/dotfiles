@@ -99,7 +99,7 @@ alias spotify='spotify_player'
 alias icat='kitten icat'
 
 # serves current directory on 0.0.0.0:8000
-alias quick-serve="python -m http.server"
+alias quick_serve="python -m http.server"
 
 
 # Compile and run C file
