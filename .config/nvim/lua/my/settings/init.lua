@@ -1,2 +1,2 @@
-require("my.settings.remap")
+require("my.settings.keymaps")
 require("my.settings.options")
