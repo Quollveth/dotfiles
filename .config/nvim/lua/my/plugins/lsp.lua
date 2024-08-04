@@ -84,6 +84,7 @@ return {
                                         "tailwindcss",
                                         -------
                                         "clangd",
+                                        "clang-format",
                                         "cmake",
                                         "pyright"
                                 },
