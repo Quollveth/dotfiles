@@ -12,8 +12,8 @@ return {
 				nvimtree = true,
 				treesitter = true,
 				harpoon = true,
-				telescope = { enabled = true, },
-			}
+				telescope = { enabled = true },
+			},
 		})
-	end
+	end,
 }
