@@ -17,4 +17,5 @@ deviceinfo=$(glxinfo -B | grep 'Device:' | sed 's/^.*: //')
 driverinfo=$(glxinfo -B | grep 'OpenGL version')
 
 echo '{"text":"'$busypercent'%","tooltip":"'$temperature' °C\n'$clock' GHz"}'
+# Why no json parsing for custom modules 😭
 #echo '{"clock":"'"$clock"'","temperature":'"$temperature"',"busypercent":'"$busypercent"',"class":"custom-gpu","tooltip":"<b>'"$deviceinfo"'</b>\n'"$driverinfo"'"}'

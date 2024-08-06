@@ -1,45 +1,36 @@
 [{
-    "layer": "top",
-    "position":"top",
-    "spacing":8,
-    "name":"topbar",
+	"layer": "top",
+	"position": "left",
+	"width":30,
+	"reload_style_on_change":true,
 
+	"modules-left": [
+		"custom/appsmenu",
+		"hyprland/workspaces",
+	],
 
-    "modules-left": [
-    	"custom/logo",
-	"mpris",
-    ],
+	"modules-center":[],
 
-    "modules-center":[
-        "hyprland/workspaces",
-    ],
+	"modules-right":[
+		"mpris",
+		"pulseaudio",
+		"custom/updates",
+		"group/time",
+		"custom/power",
+	],
 
-    "modules-right":[
-        "pulseaudio#volume",
-	"custom/updates",
-        "clock#time",
-    ],
+	"group/time":{
+		"orientation":"vertical",
+		"drawer": {
+			"transition-duration": 200,
+			"children-class": "date",
+			"transition-left-to-right": false,
+		},
+		"modules":[
+			"clock#time",
+			"clock#date",
+		]
+	},
 
-
-    "include": ["$HOME/.config/waybar/modules"]
-},
-
-{
-    "position":"bottom",
-    "layer":"top",
-    "spacing":6,
-    "name":"bottombar",
-
-    "modules-left":[
-        "privacy",
-    ],
-
-    "modules-right":[
-        "custom/gpu",
-        "cpu",
-        "memory",
-        "temperature"
-    ],
-
-    "include":["$HOME/.config/waybar/modules"]
-}]
+	"include": ["$HOME/.config/waybar/modules.json"]
+},]
