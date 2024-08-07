@@ -26,13 +26,16 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+-- Set window title to CWD
+vim.opt.title = true
+vim.opt.titlestring = [[%t – %{fnamemodify(getcwd(), ':t')}]]
 
 -- Show whitespace
 vim.opt.list = true
-local space = '·'
-vim.opt.listchars:append {
+local space = "·"
+vim.opt.listchars:append({
 	tab = "▏ ",
 	lead = space,
 	trail = space,
-	nbsp = space
-}
+	nbsp = space,
+})
