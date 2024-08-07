@@ -8,4 +8,4 @@ date=$(date +"%d-%m-%Y")
 echo "Session started at $date: $time" > $LOG_FILE
 
 ## Set wallpaper
-swww img $HOME/Pictures/wallpapers/comfy-home.png
+swww img /home/quoll/Pictures/wallpapers/cyber-asian-girl.png
