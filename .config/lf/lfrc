@@ -1,0 +1,7 @@
+set previewer ~/.config/lf/previewer
+set cleaner ~/.config/lf/cleaner
+
+cmd remove ${{
+	$IFS=':'; rm -rf $fx	
+}}
+map D push :remove

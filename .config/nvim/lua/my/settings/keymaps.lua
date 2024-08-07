@@ -16,7 +16,7 @@ map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete preserving copy buffer" }
 
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy into system clipboard" })
 
-map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current .sh file executable" })
+map("n", "<leader><C-x>", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current .sh file executable" })
 
 map("n", "<leader>w", ":set wrap!<CR>", { noremap = true, silent = true, desc = "Toggle line wrap" })
 

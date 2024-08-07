@@ -2,3 +2,5 @@
 .config/zsh/.zcompdump
 scripts/logs/
 old/
+.themes/
+.icons/
