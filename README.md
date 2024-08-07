@@ -1,0 +1,11 @@
+hyprland
+waybar
+wofi
+wlogout
+ags
+kitty
+zsh
+thunar
+mako
+neovim
+fastfetch
