@@ -1,4 +1,6 @@
-########################################################
+autoload -U promptinit; promptinit
+prompt purer
+
 #
 #autoload -Uz vcs_info
 alias reload='source $ZDOTDIR/.zshrc'
@@ -51,3 +53,5 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
+
+eval "$(zoxide init --cmd cd zsh)"
