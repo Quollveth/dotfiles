@@ -9,3 +9,5 @@ thunar
 mako
 neovim
 fastfetch
+purer
+hyprlock

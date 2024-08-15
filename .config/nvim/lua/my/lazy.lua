@@ -19,6 +19,7 @@ require("lazy").setup({
 	{ import = "my.plugins.ui" },
 	{ import = "my.plugins.utils" },
 	{ import = "my.plugins.colors" },
+	{ import = "my.plugins.debugger" },
 }, {
 	checker = {
 		enabled = true,

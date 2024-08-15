@@ -1,5 +1,6 @@
 -- Plugins that do not need a configuration
 return {
+	{ "nvim-neotest/nvim-nio" },
 	{ "knubie/vim-kitty-navigator" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "tpope/vim-fugitive" },

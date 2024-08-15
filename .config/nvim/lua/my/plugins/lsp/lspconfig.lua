@@ -41,10 +41,10 @@ return {
 				map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 				opts.desc = "Show buffer diagnostics"
-				map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+				map("n", "<leader>dD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
 				opts.desc = "Show line diagnostics"
-				map("n", "<leader>d", vim.diagnostic.open_float, opts)
+				map("n", "<leader>dd", vim.diagnostic.open_float, opts)
 
 				opts.desc = "Go to previous diagnostic"
 				map("n", "[d", vim.diagnostic.goto_prev, opts)

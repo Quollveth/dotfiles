@@ -37,7 +37,7 @@ tooltip {
 #top,
 #bottom {
 	background-color: @bg0;
-	padding: 0.5em 0 0.5em 0;
+	padding: 0.2em 0 0.5em 0;
 }
 
 
@@ -62,7 +62,6 @@ tooltip {
 	transition: none;
 }
 
-
 /* -----------------
 		Arch logo
 -------------------*/
@@ -70,7 +69,7 @@ tooltip {
 #custom-appsmenu {
 	color: #2596be;
 	font-size: 20px;
-	padding: 3px 9px 2px 0;
+	padding: 0px 9px 2px 0;
 }
 
 
