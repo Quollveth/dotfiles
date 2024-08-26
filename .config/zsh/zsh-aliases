@@ -12,12 +12,19 @@ alias whoami="whoami && curl ident.me"
 
 
 # pretty colors
-alias ls='ls -a --color=auto'
-alias ll='ls -la --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto' 
 
+# alternate applications
+eval "$(zoxide init --cmd cd zsh)"
+alias man='batman'
+alias cat='bat'
+alias ls='eza'
+alias search="fzf --preview='bat --color=always {}'"
+alias grep='rg'
+alias vim='nvim'
+alias vi='vim'
 
 # confirm overwrite
 alias cp='cp -i'
@@ -86,13 +93,9 @@ alias python='python3'
 
 alias matrix='neo-matrix --color=green2 --shortpct=100 --speed=12 --async -d 1.5 --lingerms=1,1 --rippct=0 --maxdpc=1 -D'
 
-# use 7zip to unzip to directory of same name
-7zip() {
-	filename="$1"
-	7z x "$filename" -o"${filename%.*}"
-}
-
-alias spotify='spotify_player'
+# always extract to directory of same name
+alias 7zip='function _7zextract() { local file="$1"; local dir="${file%.*}"; mkdir -p "$dir" && 7z x "$file" -o"$dir"; }; _7zextract'
+alias unzip='function _unzip() { mkdir -p "${1%.*}" && unzip "$1" -d "${1%.*}"; }; _unzip'
 
 #
 ## UTILITIES

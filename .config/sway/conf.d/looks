@@ -1,0 +1,8 @@
+default_border pixel 2
+
+smart_gaps on
+gaps outer 3
+gaps bottom 1
+gaps top 1
+gaps left 1
+gaps right 1

@@ -1,5 +1,4 @@
-# Startup script, run by hyprland/plasma on session start
-# Do not set environment variables in here, they do not persist across session
+# Startup script, run by sway on session start
 
 LOG_FILE="${XDG_SCRIPT_HOME}/logs/startup.log"
 
@@ -8,4 +7,6 @@ date=$(date +"%d-%m-%Y")
 echo "Session started at $date: $time" > $LOG_FILE
 
 ## Set wallpaper
-swww img /home/quoll/Pictures/wallpapers/cyber-asian-girl.png
+swww img WALLPAPERS_DIR/desktop/cyber-asian-girl.png
+
+

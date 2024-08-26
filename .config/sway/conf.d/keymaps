@@ -1,0 +1,139 @@
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# ------------
+#	Session
+# -----------
+
+# Open power menu on super+esc
+bindsym $mod+Escape exec 'rofi\
+	-show power-menu\
+	-modi "power-menu:rofi-power-menu\
+	--choices=shutdown/reboot/logout/"\
+	-theme Paper\'
+
+# Lock screen
+bindsym $mod+Shift+l exec swaylock, mode default
+
+# ------------------
+#	Applications	
+# ------------------
+bindsym $mod+Return exec $term
+bindsym $mod+d exec wofi --show drun
+
+# dismiss notifications
+bindsym Control+Space exec makoctl dismiss
+bindsym Control+Shift+Space exec makoctl dismiss --all
+
+# screenshot, shift to screenshot whole screen
+bindsym Print exec grimblast --notify --freeze --wait 0 copysave area
+bindsym Shift+Print exec grimblast --notify --freeze --wait 0 copysave active
+
+# open clipboard history
+bindsym $mod+h exec cliphist list | wofi -S dmenu | cliphist decode | wl-coy
+
+# -----------------------
+#	Window Management
+# -----------------------
+
+# $mod+c for horizontal split
+# $mod+v for vertical splits
+bindsym $mod+c splith
+bindsym $mod+v splitv
+
+
+# Kill window
+bindsym $mod+Shift+q kill
+# Make window fullscreen
+bindsym $mod+f fullscreen
+# Make window floating
+bindsym $mod+Shift+f floating toggle
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# -------------------
+#	Moving around:
+# -------------------
+
+# Move focus around with arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with arrow + Shift
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# -----------------
+#	Scratchpad:
+# -----------------
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# -----------------
+#	Media Keys
+# -----------------
+
+bindsym XF86AudioRaiseVolume exec wpctl set-colume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-colume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+# ---------------------
+#	Floating Windows
+# ---------------------
+
+# Drag floating windows with the mouse
+floating_modifier $mod normal
+
+bindsym $mod+shift+t exec kitty --title "Drop Down Term"
+
+# Open resize mode with super r
+# Resize windows with arrow keys
+# Return to normal mode with escape or return
+mode "resize" {
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ----------------
+#	Workspaces:
+# ----------------
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10

@@ -1,14 +1,18 @@
 default-timeout=3000
 ignore-timeout=1
 
+layer=overlay
+anchor=top-right
+background-color=#1d2020
+text-color=#d79921
+width=360
+height=150
+padding=15
+margin=10
+progress-color= source #60606080
 
-
-# Colors
-
-background-color=#303446
-text-color=#c6d0f5
-border-color=#8caaee
-progress-color=over #414559
+#font=Meslo NF 09
+default-timeout=5000
 
 [urgency=high]
-border-color=#ef9f76
+ignore-timeout=1
