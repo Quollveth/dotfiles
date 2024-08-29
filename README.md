@@ -1,13 +1,11 @@
-hyprland
+sway
+swaylockfx
 waybar
 wofi
 wlogout
-ags
 kitty
 zsh
-thunar
 mako
 neovim
 fastfetch
 purer
-hyprlock
