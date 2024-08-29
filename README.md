@@ -1,11 +1,1 @@
-sway
-swaylockfx
-waybar
-wofi
-wlogout
-kitty
-zsh
-mako
-neovim
-fastfetch
-purer
+this is a mess and should not be used by anyone
