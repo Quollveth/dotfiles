@@ -10,6 +10,7 @@ return {
 			build = "make install_jsregexp",
 		},
 		"saadparwaiz1/cmp_luasnip",
+		"rafamadriz/friendly-snippets",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -38,8 +39,27 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
-				{ name = "nvim_lsp" },
-				{ name = "cmdline" },
+			}),
+		})
+
+		-- autocompletion for commandline
+		cmp.setup.cmdline("/", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{
+					name = "cmdline",
+					option = {
+						ignore_cmds = { "Man", "!" },
+					},
+				},
 			}),
 		})
 	end,

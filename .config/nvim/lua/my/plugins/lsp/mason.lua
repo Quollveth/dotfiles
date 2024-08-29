@@ -24,6 +24,8 @@ return {
 				-- Only basics here, manually install as needed
 				"lua_ls",
 				"marksman",
+
+				"phpactor",
 			},
 		})
 
