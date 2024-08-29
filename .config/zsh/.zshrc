@@ -13,7 +13,7 @@ source $ZDOTDIR/zsh-helpers
 # Add other configuration files
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-functions"
-
+zsh_add_file "zsh-applications"
 
 # Options
 setopt autocd extendedglob nomatch

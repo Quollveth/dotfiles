@@ -20,6 +20,7 @@ require("lazy").setup({
 	{ import = "my.plugins.utils" },
 	{ import = "my.plugins.colors" },
 	{ import = "my.plugins.debugger" },
+	{ import = "my.plugins.devel" },
 }, {
 	checker = {
 		enabled = true,

@@ -1,0 +1,3 @@
+# Setting configurations for applications that may need something in here, mostly related to $PATH
+
+export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
