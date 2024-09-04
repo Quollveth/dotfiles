@@ -6,6 +6,8 @@ alias sudo='sudo '	# lets me use sudo with aliases
 
 alias svi='sudo nvim'
 
+# output of last command
+alias lc='echo $?'
 
 # add ip to whoami
 alias whoami="whoami && curl ident.me"
@@ -20,7 +22,7 @@ alias fgrep='fgrep --colour=auto'
 eval "$(zoxide init --cmd cd zsh)"
 alias man='batman'
 alias cat='bat'
-alias ls='eza'
+alias ls='eza -a'
 alias search="fzf --preview='bat --color=always {}'"
 alias grep='rg'
 alias vim='nvim'
