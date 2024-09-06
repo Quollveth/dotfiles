@@ -8,4 +8,6 @@ export XDG_SCREENSHOTS_DIR=$HOME/Pictures/screenshots/
 export XDG_WALLPAPERS_HOME=$HOME/dotfiles/wallpapers/
 export XDG_SCRIPTS_HOME=$HOME/dotfiles/scripts/
 
-export WINEARCH=win32 export WINEPREFIX=$HOME/.wine 
+export WINEARCH=win64 export WINEPREFIX=$HOME/.wine 
+
+export LC_ALL=C.UTF-8
