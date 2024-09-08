@@ -5,3 +5,5 @@ old/
 .themes/
 .icons/
 installer/
+.config/vesktop/
+!.config/vesktop/themes/
