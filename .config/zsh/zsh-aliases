@@ -119,7 +119,7 @@ quick_make ()
         echo "Compilation failed."
     fi
 }
-
+alias valgrind='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes'
 
 #
 ## DOCKER
