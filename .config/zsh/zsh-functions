@@ -12,6 +12,50 @@ function up {
 	cd $out
 }
 
+# zip only, faster
+function _unzip() { mkdir -p "${1%.*}" && unzip "$1" -d "${1%.*}"; }
+alias unzip='_unzip'
+
+## completion
+function _unzip_completion {
+  _files -g '*.zip'
+}
+#compdef _unzip_completion _unzip unzip
+
+# anything unzip can't handle
+function _7zextract() {
+	local file="$1"
+	local dir="${file%.*}"
+	mkdir -p "$dir"
+	7z x "$file" -o"$dir"
+}
+alias 7z='_7zextract'
+
+## completion
+function _7z_completion {
+  _files
+}
+#compdef _7z_completion _7zextract 7z
+
+# tar only
+function _tarextract() { 
+	local file="$1"; 
+	local ext="${file##*.}" # y do these have double extensions
+	if [[ "$ext" == "gz" || "$ext" == "bz2" || "$ext" == "xz" ]]; then
+		local dir="${file%.*.*}"  # Handle .tar.gz, .tar.bz2, etc.
+	else
+		local dir="${file%.*}"    # Handle .tar or single extension files
+	fi
+	mkdir -p "$dir" && tar -xf "$file" -C "$dir"; 
+}
+alias tar='_tarextract'
+
+## completion
+function _tar_completion {
+	_files -g '*.tar'
+}
+#compdef _tar_completion _tarextract tar
+
 
 # Encode into url
 urlencode() {

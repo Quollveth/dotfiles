@@ -25,14 +25,11 @@ PS1='[%~]→ ' # Gets overwritten by purer, stays here anyways
 autoload -U colors && colors
 
 # Autocompletion
-autoload -Uz compinit
-compinit
+autoload -Uz +X compinit && compinit
 zstyle ':completion:*' menu select
 
-
 # History
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 #

@@ -94,11 +94,6 @@ alias fetch='fastfetch'
 alias python='python3'
 
 alias matrix='neo-matrix --color=green2 --shortpct=100 --speed=12 --async -d 1.5 --lingerms=1,1 --rippct=0 --maxdpc=1 -D'
-
-# always extract to directory of same name
-alias 7zip='function _7zextract() { local file="$1"; local dir="${file%.*}"; mkdir -p "$dir" && 7z x "$file" -o"$dir"; }; _7zextract'
-alias unzip='function _unzip() { mkdir -p "${1%.*}" && unzip "$1" -d "${1%.*}"; }; _unzip'
-
 #
 ## UTILITIES
 #
@@ -108,6 +103,7 @@ alias icat='kitten icat'
 # serves current directory on 0.0.0.0:8000
 alias quick_serve="python -m http.server"
 
+alias php_serve="php -S 127.0.0.1:8000"
 
 # Compile and run C file
 quick_make () 

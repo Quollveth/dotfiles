@@ -8,4 +8,7 @@ return {
 	{ "hrsh7th/cmp-cmdline" }, -- autocompletion for the commandline
 	{ "m4xshen/smartcolumn.nvim", opts = { colorcolumn = "120", disabled_filetypes = { "alpha" } } }, -- only show the column when we reach it
 	{ "stevearc/dressing.nvim", event = "VeryLazy" }, -- makes telescope look more nicer
+	{ "gpanders/nvim-parinfer" }, -- balances parenthesis
+	{ "elkowar/yuck.vim" }, -- for eww widgets
+	--	{ "neoclide/coc.nvim" }, -- and bals
 }

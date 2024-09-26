@@ -57,13 +57,13 @@ return {
 			end,
 		})
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
+
+		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		mason_lspconfig.setup_handlers({
 			-- Default configuration for all servers
@@ -82,6 +82,34 @@ return {
 						Lua = {
 							diagnostics = { globals = { "vim" } },
 							completion = { callSnippet = "Replace" },
+						},
+					},
+				})
+			end,
+			["tsserver"] = function()
+				local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+				local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
+				lspconfig["tsserver"].setup({
+					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = volar_path,
+								languages = { "vue" },
+							},
+						},
+					},
+				})
+			end,
+			["volar"] = function()
+				lspconfig["volar"].setup({
+					init_options = {
+						typescript = {
+							tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+						},
+						vue = {
+							hybridMode = false,
 						},
 					},
 				})
