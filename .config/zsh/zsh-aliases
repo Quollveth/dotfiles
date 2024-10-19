@@ -12,21 +12,11 @@ alias lc='echo $?'
 # add ip to whoami
 alias whoami="whoami && curl ident.me"
 
-
 # pretty colors
 alias grep='grep --color=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto' 
 
-# alternate applications
-eval "$(zoxide init --cmd cd zsh)"
-alias man='batman'
-alias cat='bat'
-alias ls='eza -a'
-alias search="fzf --preview='bat --color=always {}'"
-alias grep='rg'
-alias vim='nvim'
-alias vi='vim'
 
 # confirm overwrite
 alias cp='cp -i'
@@ -65,22 +55,17 @@ alias timestamp='date +%Y-%m-%dT%H-%M-%S'
 # limit ping
 alias ping='ping -c 5'
 
-
 # we can have some ddos as a treat
 alias fastping='ping -c 100 -s.2'
-
 
 # use default app as if opened from gui fm
 alias open='xdg-open'
 
-
 # create parent directories as needed
 alias mkdir='mkdir -pv'
 
-
 # my file now
 alias gimme='sudo chown $USER:$USER'
-
 
 # make unified diff the default
 alias diff='diff -u'
@@ -90,10 +75,23 @@ alias diff='diff -u'
 ## APPLICATIONS #
 #
 
-alias fetch='fastfetch'
-alias python='python3'
+# coreutils 2
+# alias cd="zoxide" ↓
+eval "$(zoxide init --cmd cd zsh)"
+alias man='batman'
+alias cat='bat'
+alias ls='eza -a'
+alias search="fzf --preview='bat --color=always {}'"
+alias grep='rg'
+alias vim='nvim'
+alias vi='vim'
 
+alias fetch='fastfetch'
+alias py='python3'
 alias matrix='neo-matrix --color=green2 --shortpct=100 --speed=12 --async -d 1.5 --lingerms=1,1 --rippct=0 --maxdpc=1 -D'
+
+alias npm='pnpm'
+
 #
 ## UTILITIES
 #
@@ -105,25 +103,21 @@ alias quick_serve="python -m http.server"
 
 alias php_serve="php -S 127.0.0.1:8000"
 
-# Compile and run C file
-quick_make () 
-{ 
-    gcc -Wall -Wextra -pedantic -std=c11 -o "${1%.*}" "$1"
-    if [ $? -eq 0 ]; then
-        ./"${1%.*}"
-    else
-        echo "Compilation failed."
-    fi
-}
 alias valgrind='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes'
 
 #
 ## DOCKER
 #
 
+# run this container
 dock-run() { sudo docker run -i -t --privileged $@ ;}
+# open a shell inside container
 dock-exec() { sudo docker exec -i -t $@ /bin/bash ;}
+# all container logs
 dock-log() { sudo docker logs --tail=all -f $@ ;}
+# container port
 dock-port() { sudo docker port $@ ;}
+# remove container
 dock-rmc() { sudo docker rm sudo docker ps -qa --filter 'status=exited' ;}
+# remove image
 dock-rmi() { sudo docker rmi -f sudo docker images | grep '^<none>' | awk '{print $3}' ;}

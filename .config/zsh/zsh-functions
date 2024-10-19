@@ -12,6 +12,49 @@ function up {
 	cd $out
 }
 
+# Compile and run C file
+quick_make () 
+{ 
+	gcc -Wall -Wextra -pedantic -std=c11 -o "${1%.*}" "$1"
+	if [ $? -eq 0 ]; then
+		./"${1%.*}"
+	else
+	echo "Compilation failed."
+	fi
+}
+
+# Encode into url
+urlencode() {
+	setopt localoptions extendedglob
+	input=( ${(s::)1} )
+	print ${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-])/%${(l:2::0:)$(([##16]#match))}}
+}
+
+
+# Google something
+function google {
+	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
+}
+
+
+# Prints a separator banner as wide as the window
+function hr {
+	print ${(l:COLUMNS::=:)}
+}
+
+# Use lf as a visual directory selector, ctrl+o is a shortcut
+lfcd () {
+	cd "$(lf -print-last-dir "$@")"
+}
+bindkey -s '^o' 'lfcd\n'
+
+
+#
+## DECOMPRESS FILES
+#
+
+#TODO: fix completion
+
 # zip only, faster
 function _unzip() { mkdir -p "${1%.*}" && unzip "$1" -d "${1%.*}"; }
 alias unzip='_unzip'
@@ -55,31 +98,3 @@ function _tar_completion {
 	_files -g '*.tar'
 }
 #compdef _tar_completion _tarextract tar
-
-
-# Encode into url
-urlencode() {
-    	setopt localoptions extendedglob
-        input=( ${(s::)1} )
-	print ${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-])/%${(l:2::0:)$(([##16]#match))}}
-}
-
-
-# Google something
-function google {
-	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
-}
-
-
-
-# Prints a separator banner as wide as the window
-function hr {
-	print ${(l:COLUMNS::=:)}
-}
-
-# Use lf as a visual directory selector (zsh only probably?)
-lfcd () {
-	cd "$(lf -print-last-dir "$@")"
-}
-bindkey -s '^o' 'lfcd\n'
-
