@@ -1,6 +1,6 @@
 fpath+=($HOME/.local/share/pure)
 autoload -U promptinit; promptinit
-prompt purer
+eval "$(starship init zsh)"
 
 #
 #autoload -Uz vcs_info
@@ -37,5 +37,7 @@ HISTFILE=~/.cache/zsh/history
 #
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-completions"
+zsh_add_plugin "zsh-users/zsh-history-substring-search"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC

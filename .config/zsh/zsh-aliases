@@ -92,6 +92,9 @@ alias matrix='neo-matrix --color=green2 --shortpct=100 --speed=12 --async -d 1.5
 
 alias npm='pnpm'
 
+alias update='sudo snp pacman -Syu'
+alias snapshot='sudo snapper -c root create --description'
+
 #
 ## UTILITIES
 #
