@@ -33,7 +33,7 @@ urlencode() {
 
 # Google something
 function google {
-	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
+	xdg-open "https://duckduckgo.com/?t=ffab&q=`urlencode "${(j: :)@}"`"
 }
 
 
