@@ -1,6 +1,5 @@
 fpath+=($HOME/.local/share/pure)
 autoload -U promptinit; promptinit
-eval "$(starship init zsh)"
 
 #
 #autoload -Uz vcs_info
@@ -41,3 +40,5 @@ zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
+
+eval "$(starship init zsh)"
