@@ -53,10 +53,10 @@ return {
 					},
 				})
 			end,
-			["tsserver"] = function()
+			["ts_ls"] = function()
 				local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
 				local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
-				lspconfig["tsserver"].setup({
+				lspconfig["ts_ls"].setup({
 					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 					init_options = {
 						plugins = {

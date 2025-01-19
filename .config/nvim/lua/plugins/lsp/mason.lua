@@ -25,7 +25,7 @@ return {
 				"marksman", -- Markdown
 				"clangd", -- C/C++
 				"gopls", -- Go
-				"tsserver", -- JS/TS
+				"ts_ls", -- JS/TS
 				"volar", -- Vue
 				"bashls", -- Bash
 				"dockerls", -- Dockerfile
