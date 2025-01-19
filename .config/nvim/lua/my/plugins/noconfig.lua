@@ -1,8 +1,8 @@
 -- Plugins that do not need a configuration
 return {
 	{ "nvim-neotest/nvim-nio" }, -- dependency for something i forgot what
-	{ "knubie/vim-kitty-navigator" }, -- meow
 	{ "nvim-lua/plenary.nvim" }, -- dependency for something i forgot what
+	{ "knubie/vim-kitty-navigator" }, -- meow
 	{ "tpope/vim-fugitive" }, -- git
 	{ "andweeb/presence.nvim" }, -- discord presence
 	{ "hrsh7th/cmp-cmdline" }, -- autocompletion for the commandline
@@ -11,4 +11,6 @@ return {
 	{ "gpanders/nvim-parinfer" }, -- balances parenthesis
 	{ "elkowar/yuck.vim" }, -- for eww widgets
 	--	{ "neoclide/coc.nvim" }, -- and bals
+	{ "nvim-treesitter/nvim-treesitter-context" }, -- shows current scope at the top of screen
+	{ "hiphish/rainbow-delimiters.nvim" }, -- colorful parenthesis if i ever decide to open a lisp file
 }

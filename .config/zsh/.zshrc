@@ -1,3 +1,9 @@
+if [[ $((RANDOM%3)) -eq 1 ]];then
+	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
+else
+	fortune | cowsay
+fi
+
 fpath+=($HOME/.local/share/pure)
 autoload -U promptinit; promptinit
 
@@ -42,3 +48,15 @@ zsh_add_plugin "zsh-users/zsh-history-substring-search"
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 
 eval "$(starship init zsh)"
+
+
+# bun completions
+[ -s "/home/quollveth/.bun/_bun" ] && source "/home/quollveth/.bun/_bun"
+
+# pnpm
+export PNPM_HOME="/home/quollveth/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
