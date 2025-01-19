@@ -22,10 +22,8 @@ map({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy into system clipboard" })
 
 map("n", "<leader><C-x>", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current .sh file executable" })
 
--- Line wrap
 map("n", "<leader>w", ":set wrap!<CR>", { noremap = true, silent = true, desc = "Toggle line wrap" })
 
--- Also works for find/replace highlights
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Change the number under cursor
@@ -46,3 +44,18 @@ map("n", "<A-.>", "<cmd> BufferLineCycleNext <CR>") --"next buffer"
 map("n", "<A-,>", "<cmd> BufferLineCyclePrev <CR>") --"prev buffer"
 map("n", "<A-f>", "<cmd> BufferLinePick <CR>")
 map("n", "<leader>x", "<cmd> bp|sp|bn|bd! <CR>") --"close buffer"
+
+-- Source current file
+vim.api.nvim_set_keymap("n", "<leader>so", ":luafile %<CR>", { noremap = true, silent = true })
+
+-- Better split navigation
+map("n", "<c-l>", "<c-w><c-l>")
+map("n", "<c-k>", "<c-w><c-k>")
+map("n", "<c-j>", "<c-w><c-j>")
+map("n", "<c-h>", "<c-w><c-h>")
+
+-- Resize splits
+map("n", "<M-C-,>", "<c-w>5<")
+map("n", "<M-C-.>", "<c-w>5>")
+map("n", "<M-C-t>", "<c-w>+")
+map("n", "<M-C-s>", "<c-w>-")

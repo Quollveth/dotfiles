@@ -26,6 +26,14 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.inccommand = "split"
+-- Better search
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+
+-- Don't have 'o' add a comment
+vim.opt.formatoptions:remove("o")
+
 -- Set window title to CWD
 vim.opt.title = true
 vim.opt.titlestring = [[%t – %{fnamemodify(getcwd(), ':t')}]]

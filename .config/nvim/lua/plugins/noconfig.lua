@@ -10,7 +10,6 @@ return {
 	{ "stevearc/dressing.nvim", event = "VeryLazy" }, -- makes telescope look more nicer
 	{ "gpanders/nvim-parinfer" }, -- balances parenthesis
 	{ "elkowar/yuck.vim" }, -- for eww widgets
-	--	{ "neoclide/coc.nvim" }, -- and bals
 	{ "nvim-treesitter/nvim-treesitter-context" }, -- shows current scope at the top of screen
 	{ "hiphish/rainbow-delimiters.nvim" }, -- colorful parenthesis if i ever decide to open a lisp file
 }

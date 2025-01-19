@@ -1,7 +1,7 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons"
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		local nvimtree = require("nvim-tree")
@@ -11,12 +11,12 @@ return {
 
 		nvimtree.setup({
 			view = {
-				width = 60,
+				width = 30,
 			},
 		})
 		vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeFocus<CR>")
 		vim.keymap.set("n", "<C-h>", "<cmd>NvimTreeClose<CR>")
 		vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
 		vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
-	end
+	end,
 }

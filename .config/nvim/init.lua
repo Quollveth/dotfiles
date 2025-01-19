@@ -1,5 +1,4 @@
-require("my.settings")
-require("my.lazy")
+require("settings")
+require("config.lazy")
 
---vim.g.gruvbox_baby_transparent_mode = 1
-vim.cmd.colorscheme("nord")
+vim.cmd([[colorscheme nord]])
