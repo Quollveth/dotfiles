@@ -8,14 +8,26 @@ return {
 		lualine.setup({
 			options = {
 				icons_enabled = true,
-				theme = "gruvbox-baby", ----------------	  HERE
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				theme = "iceberg_dark", ----------------	  HERE
+				component_separators = { left = "|", right = "|" },
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "filename" },
+				lualine_b = {
+					"branch",
+					{
+						"diagnostics",
+						sources = { "nvim_diagnostic", "nvim_lsp" },
+						sections = { "error", "warn" },
+						symbols = { error = " ", warn = " " },
+					},
+				},
+				lualine_c = { {
+					"filename",
+					file_status = true,
+					newfile_status = true,
+					path = 1,
+				} },
 				lualine_x = {
 					{
 						lazy_status.updates,

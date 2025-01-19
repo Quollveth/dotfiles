@@ -7,10 +7,10 @@ return {
 		-- gets passed to formatters_by_ft during config
 		local formatters = {
 			lua = { "stylua" },
-			markdown = { "prettier" },
+			markdown = { "markdownlint" },
 			python = { "isort", "black" }, -- python is special and gets two formatters
-			cpp = { "clang_format" },
 			c = { "clang_format" },
+			cpp = { "clang_format" },
 			go = { "gofumpt" },
 			sh = { "beautysh" },
 		}

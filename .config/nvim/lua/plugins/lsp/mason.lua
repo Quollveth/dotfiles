@@ -21,22 +21,28 @@ return {
 
 		mason_lsp.setup({
 			ensure_installed = {
-				-- Only basics here, manually install as needed
-				"lua_ls",
-				"marksman",
+				"lua_ls", -- Lua
+				"marksman", -- Markdown
+				"clangd", -- C/C++
+				"gopls", -- Go
+				"tsserver", -- JS/TS
+				"volar", -- Vue
+				"bashls", -- Bash
+				"dockerls", -- Dockerfile
 			},
 		})
 
 		mason_installer.setup({
 			ensure_installed = {
-				---- Formatters
-				"prettier", -- The one and only
+				---- Formatters and linters
+				"prettier", -- A bunch
 				"stylua", -- Lua formatter
+				"luacheck", -- Lua linter
+				"clang-format", -- C/C++
 				"isort", -- Python formatter
 				"black", -- Python is special so it gets two formatters
-
-				---- Linters
-				"luacheck", -- Lua linter
+				"markdownlint", -- Also a formatter
+				"beautysh", -- Bash
 			},
 		})
 	end,
