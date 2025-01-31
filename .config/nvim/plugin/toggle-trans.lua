@@ -26,4 +26,5 @@ function ToggleTransparency()
 		end
 	end
 end
+-- TODO: fix this
 vim.api.nvim_set_keymap("n", "<leader>tb", ":lua ToggleTransparency()<CR>", { noremap = true, silent = true })

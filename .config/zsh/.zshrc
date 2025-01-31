@@ -1,8 +1,9 @@
-if [[ $((RANDOM%3)) -eq 1 ]];then
-	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
-else
-	fortune | cowsay
-fi
+#
+#if [[ $((RANDOM%3)) -eq 1 ]];then
+#	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
+#else
+#	fortune | cowsay
+#fi
 
 fpath+=($HOME/.local/share/pure)
 autoload -U promptinit; promptinit
