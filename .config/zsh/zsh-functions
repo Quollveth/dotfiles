@@ -43,58 +43,36 @@ function hr {
 }
 
 # Use lf as a visual directory selector, ctrl+o is a shortcut
-lfcd () {
+function lfcd() {
 	cd "$(lf -print-last-dir "$@")"
 }
 bindkey -s '^o' 'lfcd\n'
 
-
-#
-## DECOMPRESS FILES
-#
-
-#TODO: fix completion
-
-# zip only, faster
-function _unzip() { mkdir -p "${1%.*}" && unzip "$1" -d "${1%.*}"; }
-alias unzip='_unzip'
-
-## completion
-function _unzip_completion {
-  _files -g '*.zip'
+# Snapshot and system update
+function _sysup(){
+	if [ "$EUID" -ne 0 ]; then
+		echo "Must run as root"
+		return 1
+	fi
+	if ! snapper -c root create --description "system update $(date +"%d-%m-%Y")"; then
+		echo "Snapshot creation failed!"
+		return 1
+	fi
+	pacman -Syu
 }
-#compdef _unzip_completion _unzip unzip
+alias update='zsh -c "$(declare -f _sysup);_sysup"'
 
-# anything unzip can't handle
-function _7zextract() {
+# Unzips using 7zip
+function uz() {
 	local file="$1"
 	local dir="${file%.*}"
 	mkdir -p "$dir"
 	7z x "$file" -o"$dir"
 }
-alias 7z='_7zextract'
 
 ## completion
 function _7z_completion {
-  _files
+	_files -g '*.7z *.zip *.gz *.gzip *.tgz *.bz2 *.tar *.bzip2 *.tbz2 *.tbz *.rar *.cab *.arj *.z *.taz *.cpio *.rpm *.deb *.lzh *.lha *.chm *.chw *.hxs *.iso *.msl *.doc *.xls *.ppt *.wim *.swm *.exe'
+	# https://documentation.help/7-Zip/formats.htm
 }
-#compdef _7z_completion _7zextract 7z
-
-# tar only
-function _tarextract() { 
-	local file="$1"; 
-	local ext="${file##*.}" # y do these have double extensions
-	if [[ "$ext" == "gz" || "$ext" == "bz2" || "$ext" == "xz" ]]; then
-		local dir="${file%.*.*}"  # Handle .tar.gz, .tar.bz2, etc.
-	else
-		local dir="${file%.*}"    # Handle .tar or single extension files
-	fi
-	mkdir -p "$dir" && tar -xf "$file" -C "$dir"; 
-}
-alias tar='_tarextract'
-
-## completion
-function _tar_completion {
-	_files -g '*.tar'
-}
-#compdef _tar_completion _tarextract tar
+compdef _7z_completion extract

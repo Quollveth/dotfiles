@@ -1,12 +1,12 @@
-#
-#if [[ $((RANDOM%3)) -eq 1 ]];then
-#	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
-#else
-#	fortune | cowsay
-#fi
+if [[ $((RANDOM%3)) -eq 1 ]];then
+	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
+else
+	fortune | cowsay
+fi
 
 fpath+=($HOME/.local/share/pure)
 autoload -U promptinit; promptinit
+autoload -Uz compinit; compinit
 
 #
 #autoload -Uz vcs_info
@@ -27,7 +27,7 @@ unsetopt BEEP
 zle_highlight=('paste:none')
 
 # Colors and prompt
-PS1='[%~]→ ' # Gets overwritten by purer, stays here anyways
+PS1='[%~]→ ' # Gets overwritten by starship, stays here anyways
 autoload -U colors && colors
 
 # Autocompletion
@@ -38,6 +38,10 @@ zstyle ':completion:*' menu select
 HISTSIZE=SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+unset ZSH_AUTOSUGGEST_USE_ASYNC
+
+eval "$(starship init zsh)"
+
 #
 ## Plugins, leave this at the end of the file just to be sure
 #
@@ -45,11 +49,6 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
-
-unset ZSH_AUTOSUGGEST_USE_ASYNC
-
-eval "$(starship init zsh)"
-
 
 # bun completions
 [ -s "/home/quollveth/.bun/_bun" ] && source "/home/quollveth/.bun/_bun"

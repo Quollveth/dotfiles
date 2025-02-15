@@ -23,6 +23,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+# systeminfo
+alias sysin='uname -snrmo && whoami'
 
 # human readable disk
 alias df='df -h'
@@ -92,7 +94,6 @@ alias matrix='neo-matrix --color=green2 --shortpct=100 --speed=12 --async -d 1.5
 
 alias npm='pnpm'
 
-alias update='snp pacman -Syu'
 alias snapshot='snapper -c root create --description'
 
 #

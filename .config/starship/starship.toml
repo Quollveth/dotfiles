@@ -1,6 +1,6 @@
 format = """
 $all\
-$custom\
+$status\
 $cmd_duration\
 $character"""
 
@@ -8,17 +8,12 @@ $character"""
 success_symbol = '[ ➜](bold green) '
 error_symbol = '[ ✗](bold red) '
 
-# get last command ran
-[custom.test]
-command='testt="hi"'
-
-[custom.lc]
-command = 'echo $testt'
-when = true
-
 [cmd_duration]
 min_time = 500
 format = ' in [$duration ](bold yellow)'
+
+[status]
+format = 'returned [$status]'
 
 # Nerd font symbols preset
 
