@@ -1,4 +1,4 @@
-if [[ $((RANDOM%3)) -eq 1 ]];then
+if [[ $(( 0x$(head -c 1 /dev/urandom | xxd -p) )) -lt 13 ]]; then
 	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
 else
 	fortune | cowsay

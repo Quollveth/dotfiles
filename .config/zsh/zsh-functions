@@ -13,8 +13,7 @@ function up {
 }
 
 # Compile and run C file
-quick_make () 
-{ 
+quick_make () { 
 	gcc -Wall -Wextra -pedantic -std=c11 -o "${1%.*}" "$1"
 	if [ $? -eq 0 ]; then
 		./"${1%.*}"
@@ -61,6 +60,32 @@ function _sysup(){
 	pacman -Syu
 }
 alias update='zsh -c "$(declare -f _sysup);_sysup"'
+
+# Rollback to last system update (per the previous function)
+function _rollback(){
+	if [ "$EUID" -ne 0 ]; then
+		echo "Must run as root"
+		return 1
+	fi
+	
+	if ! snapper -c root create; then
+		echo "Snapshot creation failed!"
+		return 1
+	fi
+
+	TEMP_SNAPSHOT=$(sudo snapper list | tail -n 1 | awk -F '│' '{print $1}' | xargs)
+	LAST_SYS_UPDATE=$(sudo snapper list | awk -F '│' '{print $1, $7}' | grep 'system update' | awk '{print $1}' | tail -n 1 | xargs)
+
+	if [[ -z "$LAST_SYS_UPDATE" ]]; then
+		echo "No system update found"
+		return 1
+	fi
+
+	snapper undochange $LAST_SYS_UPDATE..$TEMP_SNAPSHOT
+	
+	snapper delete $TEMP_SNAPSHOT
+}
+alias rollback='zsh -c "$(declare -f _rollback);_rollback"'
 
 # Unzips using 7zip
 function uz() {
