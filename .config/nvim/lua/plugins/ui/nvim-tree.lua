@@ -15,8 +15,7 @@ return {
 			},
 		})
 		vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeFocus<CR>")
-		vim.keymap.set("n", "<C-h>", "<cmd>NvimTreeClose<CR>")
-		vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
-		vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
+		vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", { desc = "[T]ree [C]ollapse" })
+		vim.keymap.set("n", "<leader>tr", "<cmd>NvimTreeRefresh<CR>", { desc = "[T]ree [R]efresh" })
 	end,
 }

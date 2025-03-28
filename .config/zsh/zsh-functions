@@ -73,7 +73,7 @@ function _rollback(){
 		return 1
 	fi
 
-	TEMP_SNAPSHOT=$(sudo snapper list | tail -n 1 | awk -F '│' '{print $1}' | xargs)
+	TEMP_SNAPSHOT=$(snapper list --columns number | tail -n 1 | xargs)
 	LAST_SYS_UPDATE=$(sudo snapper list | awk -F '│' '{print $1, $7}' | grep 'system update' | awk '{print $1}' | tail -n 1 | xargs)
 
 	if [[ -z "$LAST_SYS_UPDATE" ]]; then

@@ -5,15 +5,19 @@ $cmd_duration\
 $character"""
 
 [character]
-success_symbol = '[ ➜](bold green) '
-error_symbol = '[ ✗](bold red) '
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
 
 [cmd_duration]
 min_time = 500
-format = ' in [$duration ](bold yellow)'
+format = 'in [$duration ](bold yellow)'
 
 [status]
-format = 'returned [$status]'
+success_style="green"
+failure_style="bold red"
+success_symbol = "✔"
+format = "[\\[$status$signal_name$maybe_int\\]]($style) "
+disabled = false
 
 # Nerd font symbols preset
 

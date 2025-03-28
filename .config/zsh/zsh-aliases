@@ -6,8 +6,10 @@ alias sudo='sudo '	# lets me use sudo with aliases
 
 alias svi='sudo nvim'
 
-# output of last command
-alias lc='echo $?'
+# last command
+lc() {
+  echo "[ $(history -1 | sed 's/ *[0-9]* *//') ]"
+}
 
 # add ip to whoami
 alias whoami="whoami && curl ident.me"

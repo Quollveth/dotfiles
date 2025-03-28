@@ -40,7 +40,6 @@ return {
 				"luacheck", -- Lua linter
 				"clang-format", -- C/C++
 				"isort", -- Python formatter
-				"black", -- Python is special so it gets two formatters
 				"markdownlint", -- Also a formatter
 				"beautysh", -- Bash
 			},

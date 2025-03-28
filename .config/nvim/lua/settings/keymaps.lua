@@ -15,16 +15,14 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 -- By default deleting a line or pasting over it overwrites your current copy buffer
-map("x", "<leader>p", '"_dp', { desc = "Paste preserving copy buffer" })
-map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete preserving copy buffer" })
+map("x", "<leader>p", '"_dp', { desc = "Paste preserving" })
+map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete preserving" })
+map({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank into system clipboard" })
 
-map({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy into system clipboard" })
+map("n", "<leader><C-x>", "<cmd>!chmod +x %<CR>", { silent = true, desc = "chmod +x buffer" })
 
-map("n", "<leader><C-x>", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current .sh file executable" })
-
-map("n", "<leader>w", ":set wrap!<CR>", { noremap = true, silent = true, desc = "Toggle line wrap" })
-
-map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+map("n", "<leader>w", ":set wrap!<CR>", { noremap = true, silent = true, desc = "[W]rap lines" })
+map("n", "<leader>nh", ":nohl<CR>", { desc = "[N]o [H]ighlights" })
 
 -- Change the number under cursor
 map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
@@ -42,11 +40,16 @@ vim.api.nvim_set_keymap("n", "Yj", "jyypk", { noremap = true, silent = true })
 map("n", "<S-b>", "<cmd> enew <CR>") --"new buffer"
 map("n", "<A-.>", "<cmd> BufferLineCycleNext <CR>") --"next buffer"
 map("n", "<A-,>", "<cmd> BufferLineCyclePrev <CR>") --"prev buffer"
-map("n", "<A-f>", "<cmd> BufferLinePick <CR>")
-map("n", "<leader>x", "<cmd> bp|sp|bn|bd! <CR>") --"close buffer"
+map("n", "<A-x>", "<cmd> BufferLinePick <CR>")
+map("n", "<leader>x", "<cmd> bp|sp|bn|bd! <CR>", { desc = "Close buffer" }) --"close buffer"
 
 -- Source current file
-vim.api.nvim_set_keymap("n", "<leader>so", ":luafile %<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>so",
+	":luafile %<CR>",
+	{ noremap = true, silent = true, desc = "[S][O]urce lua file" }
+)
 
 -- Better split navigation
 map("n", "<c-l>", "<c-w><c-l>")

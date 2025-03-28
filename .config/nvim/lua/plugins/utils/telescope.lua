@@ -27,11 +27,11 @@ return {
 			},
 		})
 		-- replaces default ff keybind to only look for git files, pf (project files) is standard search
-		vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Search all file" })
-		vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "Search git tracked files" })
+		vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "[P]roject [F]ind" })
+		vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles" })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
-		vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Search string under cursor" })
-		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Find TODOs" })
+		vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Search string" })
+		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "[F]ind [T]ODO" })
 
 		-- extensions
 		telescope.load_extension("fzf")

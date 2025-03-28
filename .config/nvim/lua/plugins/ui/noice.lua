@@ -33,10 +33,8 @@ return {
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
 
-			-- dismiss on nd
-			vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" }),
-			-- last message on nl
-			vim.keymap.set("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "See Last Noice Message" }),
+			vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "[N]oice [D]ismiss" }),
+			vim.keymap.set("n", "<leader>nl", "<cmd>NoiceLast<CR>", { desc = "[N]oice [L]ast" }),
 		})
 	end,
 }
