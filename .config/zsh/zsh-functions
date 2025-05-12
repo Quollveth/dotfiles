@@ -57,9 +57,10 @@ function _sysup(){
 		echo "Snapshot creation failed!"
 		return 1
 	fi
-	pacman -Syu
+	pacman -Syu "$@"
 }
-alias update='zsh -c "$(declare -f _sysup);_sysup"'
+alias update='zsh -c "$(declare -f _sysup); _sysup \"\$@\"" update'
+
 
 # Rollback to last system update (per the previous function)
 function _rollback(){

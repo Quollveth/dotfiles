@@ -112,13 +112,18 @@ alias php_serve="php -S 127.0.0.1:8000"
 alias valgrind='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes'
 
 #
+## GIT
+#
+alias git_all="git add . && git commit -m "
+
+#
 ## DOCKER
 #
 
 # run this container
-dock-run() { sudo docker run -i -t --privileged $@ ;}
+dock-run() { sudo docker run --rm -dit --privileged $@ ;}
 # open a shell inside container
-dock-exec() { sudo docker exec -i -t $@ /bin/bash ;}
+dock-shell() { sudo docker exec -it --privileged $@ sh;}
 # all container logs
 dock-log() { sudo docker logs --tail=all -f $@ ;}
 # container port
