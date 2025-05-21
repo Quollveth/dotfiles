@@ -1,7 +1,9 @@
-if [[ $(( 0x$(head -c 1 /dev/urandom | xxd -p) )) -lt 13 ]]; then
-	echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
-else
-	fortune | cowsay
+if [[ $(pgrep zsh | wc -l) -eq 2 ]]; then
+	if [[ $((1 + $RANDOM % 10)) -eq 7 ]]; then
+		echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
+	else
+		/home/quollveth/scripts/small-fortune | cowsay
+	fi
 fi
 
 fpath+=($HOME/.local/share/pure)
@@ -35,8 +37,8 @@ autoload -Uz +X compinit && compinit
 zstyle ':completion:*' menu select
 
 # History
-HISTSIZE=SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+export HISTSIZE=SAVEHIST=10000
+export HISTFILE=~/.cache/zsh/history
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
 

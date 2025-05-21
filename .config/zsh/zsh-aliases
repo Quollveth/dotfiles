@@ -6,7 +6,7 @@ alias sudo='sudo '	# lets me use sudo with aliases
 
 alias svi='sudo nvim'
 
-# last command
+# last command ran
 lc() {
   echo "[ $(history -1 | sed 's/ *[0-9]* *//') ]"
 }
@@ -35,13 +35,11 @@ alias free='free -m'
 
 # top process by memory
 alias psmem='ps auxf | sort -nr -k 4 | head -5'
-#top process by cpu
+# top process by cpu
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 
 # lazy
-alias h='history'
-alias j='jobs -l'
 alias cls='clear'
 alias clr='clear'
 
@@ -128,7 +126,3 @@ dock-shell() { sudo docker exec -it --privileged $@ sh;}
 dock-log() { sudo docker logs --tail=all -f $@ ;}
 # container port
 dock-port() { sudo docker port $@ ;}
-# remove container
-dock-rmc() { sudo docker rm sudo docker ps -qa --filter 'status=exited' ;}
-# remove image
-dock-rmi() { sudo docker rmi -f sudo docker images | grep '^<none>' | awk '{print $3}' ;}

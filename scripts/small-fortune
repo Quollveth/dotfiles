@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+FORTUNE=$(fortune)
+ATTEMPTS=0
+
+while [ "$(echo "$FORTUNE" | wc -c)" -ge 50 ] && [ $ATTEMPTS -le 10 ]; do
+    FORTUNE=$(fortune)
+    ATTEMPTS=$((ATTEMPTS + 1))
+done
+
+echo "$FORTUNE"

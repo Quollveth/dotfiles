@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+snapper delete $(sudo snapper list | awk -F '│' '{print $1, $7}' | grep 'timeline' | awk '{print $1}')
