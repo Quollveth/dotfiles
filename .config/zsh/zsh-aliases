@@ -102,7 +102,7 @@ alias snapshot='snapper -c root create --description'
 
 alias icat='kitten icat'
 
-# serves current directory on 0.0.0.0:8000
+# serves current directory
 alias quick_serve="python -m http.server"
 
 alias php_serve="php -S 127.0.0.1:8000"

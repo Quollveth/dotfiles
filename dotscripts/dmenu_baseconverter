@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+input="$(echo "" | dmenu -b -p "Number: " <&-)"
+[[ ! -z "$input" ]] || exit 0
+
+base="$(echo "$input" | head -c 2)"
+in="$(printf '%s\n' "${input^^}" | tail -c +3)"
+
+case ${base} in
+    "0x") dec=$(echo "obase=10; ibase=16;$in" | bc) ;;
+    "0b") dec=$(echo "obase=10; ibase=2; $in" | bc) ;;
+	"0o") dec=$(echo "obase=10; ibase=8; $in" | bc) ;;
+    *)    dec="$input" ;;
+esac
+
+hex=$(echo "obase=16; ibase=10; $dec" | bc)
+oct=$(echo "obase=8; ibase=10; $dec" | bc)
+bin=$(echo "obase=2; ibase=10; $dec" | bc)
+
+echo -e "Dec:$dec\nHex:$hex\nOct:$oct\nBin:$bin" | dmenu -b -i -l 4

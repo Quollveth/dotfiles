@@ -1,0 +1,91 @@
+#!/usr/bin/env sh
+
+## Author : Aditya Shakya (adi1090x)
+## Github : @adi1090x
+#
+## Rofi   : Power Menu
+#
+# Modified by Quollveth
+
+theme='powermenu'
+
+uptime="`uptime -p | sed -e 's/up //g'`"
+host=`whoami`
+
+shutdown='󰤆 Shutdown'
+reboot='󰜉 Reboot'
+lock='󰍁 Lock'
+kill='󰯈 Kill'
+logout='󰗼 Logout'
+
+opts="$kill\n$lock\n$logout\n$reboot\n$shutdown"
+
+yes=' Yes'
+no='x No'
+
+confirm_exit() {
+    echo -e "$yes\n$no" | \
+        rofi \
+        -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+        -theme-str 'mainbox {children: [ "message", "listview" ];}' \
+        -theme-str 'listview {columns: 2; lines: 1;}' \
+        -theme-str 'textbox {horizontal-align: 0.5;}' \
+        -dmenu \
+        -p 'Confirmation' \
+        -mesg 'Are you Sure?' \
+        -theme ${dir}/${theme}.rasi
+}
+
+run_rofi() {
+    echo -e "$opts" | \
+        rofi -dmenu \
+        -p "$host" \
+        -mesg "Uptime: $uptime" \
+        -theme $XDG_CONFIG_HOME/rofi/${theme}.rasi
+}
+
+run_cmd() {
+    selected="$(confirm_exit)"
+    if [[ "$selected" == "$yes" ]]; then
+        if [[ $1 == '--shutdown' ]]; then
+            systemctl poweroff
+        elif [[ $1 == '--reboot' ]]; then
+            systemctl reboot
+        elif [[ $1 == '--logout' ]]; then
+            i3-msg exit
+        fi
+    else
+        exit 0
+    fi
+}
+
+run_kill(){
+	# reversed order after i accidentally pressed enter one extra time and killed systemd
+	# pls do not kill systemd
+    ps -u $USER -o pid,comm | tail -n +2 | tac | rofi \
+        -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 500px;}' \
+		-theme-str 'inputbar{children:["entry"];}' \
+		-dmenu -i -c -l 10 \
+		-p 'Running' \
+        -theme ${dir}/${theme}.rasi \
+        | awk '{print $1}' | xargs -r kill
+}
+
+chosen="$(run_rofi)"
+# don't show confirmation if rofi exits without selecting anything
+if [[ -z "$chosen" ]]; then exit 0; fi
+
+case ${chosen} in
+    $kill)
+        run_kill ;;
+    $shutdown)
+        run_cmd --shutdown ;;
+    $reboot)
+        run_cmd --reboot ;;
+    $lock)
+        betterlockscreen -l ;;
+    $suspend)
+        run_cmd --suspend ;;
+    $logout)
+        run_cmd --logout ;;
+esac

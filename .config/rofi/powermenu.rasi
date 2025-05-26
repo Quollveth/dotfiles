@@ -153,3 +153,12 @@ element selected.normal {
     background-color:            var(selected);
     text-color:                  var(background);
 }
+
+entry {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "";
+    placeholder-color:           inherit;
+}

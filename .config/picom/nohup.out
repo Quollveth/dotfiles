@@ -1,0 +1,5 @@
+[ 05/23/25 17:37:16.449 c2_parse_target WARN ] Type specifier is deprecated. Type "a" specified on target "_NET_WM_STATE" will be ignored, you can remove it.
+[ 05/23/25 17:37:16.449 c2_parse_target WARN ] Format specifier is deprecated. Format "32" specified on target "_NET_WM_STATE" will be ignored, you can remove it.
+[ 05/23/25 18:11:47.663 x_fetch_region ERROR ] Failed to fetch rectangles (No error)
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":0"
+      after 123113 requests (122995 known processed) with 0 events remaining.

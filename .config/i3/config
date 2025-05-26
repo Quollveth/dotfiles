@@ -32,8 +32,15 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+Return exec kitty
-bindsym $mod+d exec $HOME/scripts/rofi-launcher
-bindsym $mod+Escape exec $HOME/scripts/rofi-powermenu
+bindsym $mod+d exec $HOME/dotscripts/rofi_launcher
+bindsym $mod+Escape exec $HOME/dotscripts/rofi_powermenu
+bindsym $mod+n exec $HOME/dotscripts/dmenu_baseconverter
+bindsym $mod+Shift+v exec $HOME/dotscripts/dmenu_cliphist sel
+bindsym Ctrl+c exec $HOME/dotscripts/dmenu_cliphist add
+
+bindsym Print exec xfce4-screenshooter -r
+bindsym Shift+Print exec xfce4-screenshooter -f
+bindsym $mod+Print exec xfce4-screenshooter
 
 # Volume keys
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -41,6 +48,12 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl prev
+
 
 #################################
 #			LOOKS				#
