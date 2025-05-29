@@ -13,8 +13,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 
 # --- Extra dirs
-export SCREENSHOTS_DIR=$HOME/Pictures/screenshots/
-export WALLPAPERS_DIR=$HOME/Pictures/wallpapers/
+export SCREENSHOTS_DIR=$HOME/Pictures/Screenshots/
+export WALLPAPERS_DIR=$HOME/Pictures/Wallpapers/
 export SCRIPTS_DIR=$HOME/scripts/
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh

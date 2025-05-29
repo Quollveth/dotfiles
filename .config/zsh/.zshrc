@@ -2,7 +2,7 @@ if [[ $(pgrep zsh | wc -l) -eq 2 ]]; then
 	if [[ $((1 + $RANDOM % 10)) -eq 7 ]]; then
 		echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
 	else
-		/home/quollveth/dotscripts/small-fortune | cowsay
+		$SCRIPTS_DIR/small-fortune | cowsay
 	fi
 fi
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+dunst &
+polybar -r &
+picom &
+$SCRIPTS_DIR/monitorLayout &
+feh --bg-fill $WALLPAPERS_DIR/perfect_blue.jpg
