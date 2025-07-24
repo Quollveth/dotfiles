@@ -30,14 +30,18 @@ urlencode() {
 }
 
 
-# Google something
-function google {
+function ddg() {
 	xdg-open "https://duckduckgo.com/?t=ffab&q=`urlencode "${(j: :)@}"`"
+}
+
+#FIXME: why entr is no work
+function live() {
+	find "$1" -name '.*' -prune -o -print | entr -p "$2"
 }
 
 
 # Prints a separator banner as wide as the window
-function hr {
+function hr() {
 	print ${(l:COLUMNS::=:)}
 }
 

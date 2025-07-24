@@ -1,4 +1,3 @@
-# Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export LC_ALL=C.UTF-8
 
@@ -6,6 +5,7 @@ export LC_ALL=C.UTF-8
 export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="librewolf"
+export FILES="thunar"
 
 # --- XDG dirs
 export XDG_CONFIG_HOME=$HOME/.config
@@ -32,8 +32,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH" 
 
 # Java
-export JAVA_HOME='/usr/lib/jvm/java-21-openjdk'
-export PATH=$JAVA_HOME/bin:$PATH
+#export JAVA_HOME='/usr/lib/jvm/java-21-openjdk'
+#export PATH=$JAVA_HOME/bin:$PATH
 
 # Android
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/

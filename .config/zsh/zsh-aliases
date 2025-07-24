@@ -82,7 +82,7 @@ alias diff='diff -u'
 eval "$(zoxide init --cmd cd zsh)"
 alias man='batman'
 alias cat='bat'
-alias ls='eza -a'
+alias ls='eza --sort=size --icons --color=always --group-directories-first'
 alias search="fzf --preview='bat --color=always {}'"
 alias grep='rg'
 alias vim='nvim'
@@ -103,7 +103,7 @@ alias snapshot='snapper -c root create --description'
 alias icat='kitten icat'
 
 # serves current directory
-alias quick_serve="python -m http.server"
+alias serve="python -m http.server"
 
 alias php_serve="php -S 127.0.0.1:8000"
 

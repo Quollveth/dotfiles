@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+TEMPFILE="$HOME/.cache/screenshot.png"
+
+maim -s > $TEMPFILE
+
+[ ! -s "$TEMPFILE" ] && exit 0
+
+selection="$(echo -e "clip\nsave\ndrag" | dmenu -b -l 3)"
+
+case $selection in
+	clip) xclip -selection clipboard -t image/png "$TEMPFILE" ;;
+	drag) dragon-drop --and-exit --on-top "$TEMPFILE" ;;
+	save) 
+		name="$(echo "" | dmenu -b -p "Name: " <&-)"
+		if [ -z "$name" ]; then name=$(date -Iseconds); fi
+		fullpath="$SCREENSHOTS_DIR""$name"".png"
+		cp "$TEMPFILE" "$fullpath"
+		notify-send "saved file as $fullpath" -t 1000 ;;
+esac

@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+find ~/.config/i3/ -name '.*' -prune -o -print | entr i3-msg reload &
 dunst &
 polybar -r &
 picom &

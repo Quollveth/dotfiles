@@ -1,0 +1,87 @@
+[init]
+	defaultBranch = main
+
+[user]
+	name = Quollveth
+	email = quollveth@gmail.com
+
+[core]
+	editor = nvim
+	autcrlf = input
+	compression = 9
+	whitespace = error
+	preloadindex = true
+	fsync = none
+
+[advice]
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints = false
+
+[commit]
+	#gpgSign = true
+	verbose = true
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[diff]
+	context = 3
+	rename = copies
+	interHunkContext = 10
+
+[status]
+    branch = true
+    short = true
+    showStash = true
+    showUntrackedFiles = all
+
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+
+[pull]
+	rebase = true
+	default = current
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck
+
+## Colors
+
+[color "blame"]
+    highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+
+[color "branch"]
+    current  = magenta
+    local    = default
+    remote   = yellow
+    upstream = green
+    plain    = blue
+
+[color "diff"]
+    meta       = black bold
+    frag       = magenta
+    context    = white
+    whitespace = yellow reverse
+    old        = red
+
+[color.decorate]
+    HEAD = red
+    branch = blue
+    tag = yellow
+    remoteBranch = magenta
+
+## URL
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+
+[url "git@github.com:quollveth/"]
+    insteadOf = "quol:"
+
+[url "https://aur.archlinux.org/"]
+	insteadOf = "aur:"

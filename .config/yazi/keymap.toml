@@ -1,0 +1,15 @@
+[[mgr.prepend_keymap]]
+on  = "<C-n>"
+run = 'shell -- ripdrag -xan "$@"'
+desc = "Open drag and drop utility"
+
+# yank to clipboard
+[[mgr.prepend_keymap]]
+on  = "y"
+run = [ 'shell -- echo "$@" | xclip -i -selection clipboard -t text/uri-list', "yank" ]
+desc = 'copy'
+
+[[mgr.prepend_keymap]]
+on   = "t"
+run  = "plugin smart-tab"
+desc = "Create a tab and enter the hovered directory"

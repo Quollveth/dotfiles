@@ -44,6 +44,16 @@ unset ZSH_AUTOSUGGEST_USE_ASYNC
 
 eval "$(starship init zsh)"
 
+# yazi wrapper
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 #
 ## Plugins, leave this at the end of the file just to be sure
 #

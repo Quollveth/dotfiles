@@ -11,8 +11,9 @@ set $term --no-startup-id $TERMINAL
 #			AUTOSTART			#
 #################################
 
-exec_always --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec_always --no-startup-id dex --autostart --environment i3
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l --nofork
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always $SCRIPTS_DIR/startup
 
 #################################
@@ -24,22 +25,20 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace
 bindsym $mod+Shift+r restart
 # exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # --- Applications
 bindsym $mod+Return exec $term
 bindsym $mod+w		exec $BROWSER
+bindsym $mod+e		exec $FILES
 
 bindsym $mod+d			exec $SCRIPTS_DIR/rofi_launcher
 bindsym $mod+Escape		exec $SCRIPTS_DIR/rofi_powermenu
 bindsym $mod+n			exec $SCRIPTS_DIR/dmenu_baseconverter
-bindsym $mod+Shift+v	exec $SCRIPTS_DIR/dmenu_cliphist sel
-bindsym Ctrl+x			exec $SCRIPTS_DIR/dmenu_cliphist add
-
-# Screenshot
-bindsym Print		exec xfce4-screenshooter -r
-bindsym Shift+Print exec xfce4-screenshooter -f
-bindsym $mod+Print	exec xfce4-screenshooter
+#bindsym $mod+Shift+v	exec $SCRIPTS_DIR/dmenu_cliphist sel
+#bindsym Ctrl+x			exec $SCRIPTS_DIR/dmenu_cliphist add
+bindsym Print			exec $SCRIPTS_DIR/dmenu_screenshot
+bindsym Shift+Print		exec flameshot gui
 
 # --- Volume
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -53,12 +52,17 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl prev
 
+#################################
+#			WINDOW RULES		#
+#################################
+for_window [class="ripdrag"] floating enable
 
 #################################
 #			LOOKS				#
 #################################
 
 font pango: Pragmasevka Nerd Font 8
-gaps inner 5
-gaps outer 5
+gaps inner 3
+#gaps outer 5
 for_window [class="^.*"] border pixel 0
+new_window 1pixel
