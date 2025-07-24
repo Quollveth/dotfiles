@@ -31,10 +31,6 @@ export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 export BUN_INSTALL="$HOME/.bun" 
 export PATH="$BUN_INSTALL/bin:$PATH" 
 
-# Java
-#export JAVA_HOME='/usr/lib/jvm/java-21-openjdk'
-#export PATH=$JAVA_HOME/bin:$PATH
-
 # Android
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/

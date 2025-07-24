@@ -36,13 +36,6 @@ map("n", "O", "O<Esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "Yk", "kyypj", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "Yj", "jyypk", { noremap = true, silent = true })
 
--- Bufferline controls
-map("n", "<S-b>", "<cmd> enew <CR>") --"new buffer"
-map("n", "<A-.>", "<cmd> BufferLineCycleNext <CR>") --"next buffer"
-map("n", "<A-,>", "<cmd> BufferLineCyclePrev <CR>") --"prev buffer"
-map("n", "<A-x>", "<cmd> BufferLinePick <CR>")
-map("n", "<leader>x", "<cmd> bp|sp|bn|bd! <CR>", { desc = "Close buffer" }) --"close buffer"
-
 -- Source current file
 vim.api.nvim_set_keymap(
 	"n",

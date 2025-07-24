@@ -16,13 +16,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "plugins" }, -- only here to pull noconfig.lua
-	{ import = "plugins.ui" }, -- ui changes
-	{ import = "plugins.colors" }, -- the most important one
-	{ import = "plugins.utils" }, -- misc utility plugins
-	{ import = "plugins.lsp" }, -- lspconfig, mason and related
-	{ import = "plugins.debugger" }, -- theres only one file in there lol
-	{ import = "plugins.languages" }, -- plugins for specific languages
+	{ import = "plugins" },
+	{ import = "plugins.ui" },
+	{ import = "plugins.colors" },
+	{ import = "plugins.languages" },
+	{ import = "plugins.utils" },
 }, {
 	checker = {
 		enabled = true,

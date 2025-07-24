@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+if [[ $((1 + $RANDOM % 13)) -eq 13 ]]; then
+    echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
+else
+    FORTUNE=$(fortune)
+    ATTEMPTS=0
+
+    while [ "$(echo "$FORTUNE" | wc -c)" -ge 50 ] && [ $ATTEMPTS -le 10 ]; do
+        FORTUNE=$(fortune)
+        ATTEMPTS=$((ATTEMPTS + 1))
+    done
+
+    echo "$FORTUNE" | cowsay
+fi

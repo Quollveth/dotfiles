@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
 	"akinsho/bufferline.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -23,7 +25,7 @@ return {
 				offsets = {
 					{
 						filetype = "NvimTree",
-						text = "Filetree",
+						text = "File Explorer",
 						text_align = "center",
 						separator = true,
 					},
@@ -32,3 +34,4 @@ return {
 		})
 	end,
 }
+--]]
