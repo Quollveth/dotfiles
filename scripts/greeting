@@ -1,11 +1,15 @@
 #!/usr/bin/env sh
+MAX_ATTEMPS=10
+
+# lucky thirteen?
 if [[ $((1 + $RANDOM % 13)) -eq 13 ]]; then
     echo $(( $(date +%Y) + 1 )) Will Be The Year of Linux Desktop | cowsay -f tux
 else
     FORTUNE=$(fortune)
     ATTEMPTS=0
 
-    while [ "$(echo "$FORTUNE" | wc -c)" -ge 50 ] && [ $ATTEMPTS -le 10 ]; do
+    # get a fortune less than 50 chars unless it takes too long
+    while [ "$(echo "$FORTUNE" | wc -c)" -ge 50 ] && [ $ATTEMPTS -le $MAX_ATTEMPS ]; do
         FORTUNE=$(fortune)
         ATTEMPTS=$((ATTEMPTS + 1))
     done

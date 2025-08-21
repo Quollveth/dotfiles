@@ -1,0 +1,10 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "modkey",
+        "root",
+        "mykeyboardlayout",
+        "awesome",
+        "client"
+    ]
+}

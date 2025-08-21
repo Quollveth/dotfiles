@@ -1,5 +1,8 @@
 alias sudo='sudo '	# lets me use sudo with aliases
 
+# WHY THE FUCK IT KEEPS RESETTING AAAAAAAHHHHHHH
+alias fixkb='setxkbmap -layout br,pt'
+
 #
 ## QUALITY OF LIFE
 #
