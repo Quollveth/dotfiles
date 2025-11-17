@@ -6,13 +6,40 @@ local menubar = require("menubar")
 local modkey = RC.vars.modkey
 local terminal = RC.vars.terminal
 
+local user_keys = require("keybinds")
+
+local ukt
+for _, v in pairs(user_keys) do
+	if v.command ~= nil then
+		ukt = gears.table.join(ukt,
+			awful.key(v.modifier,v.key,
+				function() awful.spawn.with_shell(v.command) end,
+				{description = v.description, group = v.group}
+			)
+		)
+		goto continue
+	end
+
+	if v.bind ~= nil then
+		ukt = gears.table.join(ukt,
+			awful.key(v.modifier,v.key, v.bind, {description = v.description, group = v.group})
+		)
+		goto continue
+	end
+	--TODO: somehow error if neither command nor bind exist
+
+    ::continue::
+end
+
 --stylua: ignore
 local g_keys = gears.table.join(
+	ukt, -- join user keys table
 	--- Help
-	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
+	--- Default is s, now it's F1
+	awful.key({ modkey }, "0xffbe", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 
 	-------------------------------------------------------------------
-	-- Tag browsing
+	--- Tag browsing
 	-------------------------------------------------------------------
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
@@ -31,9 +58,9 @@ local g_keys = gears.table.join(
 		function() RC.mainmenu.menu:show() end,
 		{ description = "show main menu", group = "awesome" }
 	),
--
+
 	-------------------------------------------------------------------
-	-- Layout manipulation
+	--- Layout manipulation
 	-------------------------------------------------------------------
 	awful.key({ modkey, "Shift" }, "j",
 		function() awful.client.swap.byidx(1) end,
@@ -68,7 +95,7 @@ local g_keys = gears.table.join(
 	),
 
 	-------------------------------------------------------------------
-	-- Standard program
+	--- Standard program
 	-------------------------------------------------------------------
 	awful.key({ modkey }, "Return",
 		function() awful.spawn(terminal) end,
@@ -79,7 +106,7 @@ local g_keys = gears.table.join(
 	--awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
 	-------------------------------------------------------------------
-	-- Layout manipulation
+	--- Layout manipulation
 	-------------------------------------------------------------------
 	awful.key({ modkey }, "l",
 		function() awful.tag.incmwfact(0.05) end,
@@ -130,7 +157,7 @@ local g_keys = gears.table.join(
 	end, { description = "restore minimized", group = "client" }),
 
 	-------------------------------------------------------------------
-	-- Prompt
+	--- Prompt
 	-------------------------------------------------------------------
 	awful.key({ modkey }, "r",
 		function() awful.screen.focused().mypromptbox:run() end,
@@ -150,7 +177,7 @@ local g_keys = gears.table.join(
 	),
 
 	-------------------------------------------------------------------
-	-- Clients
+	--- Clients
 	-------------------------------------------------------------------
 	-- Resize
 	awful.key({ modkey, "Control" }, "Down", function() awful.client.moveresize(0, 0, 0, -20) end),
@@ -165,11 +192,41 @@ local g_keys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "Right", function() awful.client.moveresize(20, 0, 0, 0) end),
 
 	-------------------------------------------------------------------
-	-- Menubar
+	--- Menubar
 	-------------------------------------------------------------------
 	awful.key({ modkey }, "p",
 		function() menubar.show() end,
 		{ description = "show the menubar", group = "launcher" }
+	),
+
+	-------------------------------------------------------------------
+	--- Media
+	-------------------------------------------------------------------
+	awful.key({}, 'XF86AudioPlay',
+		function() awful.spawn.with_shell('playerctl play-pause') end,
+		{ description = 'toggle music', group = 'media'}
+	),
+	awful.key({}, 'XF86AudioNext',
+		function() awful.spawn.with_shell('playerctl next') end,
+		{description = 'next track', group = 'media'}
+	),
+	awful.key({}, 'XF86AudioPrev',
+		function() awful.spawn.with_shell('playerctl prev') end,
+		{description = 'previous track', group = 'media'}
+	),
+	awful.key({}, 'XF86AudioMute',
+		function() awful.spawn.with_shell('pactl set-source-mute @DEFAULT_SOURCE@ toggle') end,
+		{description = 'toggle input mute', group = 'media'}
+	),
+	-- raise
+	awful.key({}, 'XF86AudioRaiseVolume',
+		function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ +10%') end,
+		{description = 'raise volume', group = 'media'}
+	),
+	-- lower
+	awful.key({}, 'XF86AudioLowerVolume',
+		function() awful.spawn.with_shell('pactl set-sink-volume @DEFAULT_SINK@ -10%') end,
+		{description = 'lower volume', group = 'media'}
 	)
 )
 

@@ -86,10 +86,10 @@ return {
 
 		map("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
 
+		map("n", "<F9>", dap.step_over, {})
+		map("n", "<F10>", dap.step_into, {})
+		map("n", "<F11>", dap.step_out, {})
 		map("n", "<F12>", dap.continue, {})
-		map("n", "<F2>", dap.step_over, {})
-		map("n", "<F3>", dap.step_into, {})
-		map("n", "<F4>", dap.step_out, {})
 
 		-- Auto open and close dapui
 		dap.listeners.before.attach.dapui_config = function()

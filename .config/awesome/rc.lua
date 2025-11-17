@@ -12,13 +12,18 @@ require("awful.autofocus")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local cfg = os.getenv("XDG_CONFIG_HOME")
+beautiful.init(cfg .. "/awesome/theme/theme.lua")
 
 RC = {} -- global namespace
 RC.vars = require("user_config")
 
+if RC.vars.wallpaper then
+	beautiful.get().wallpaper = RC.vars.wallpaper
+end
+
 -- stylua: ignore
--- used in core/menu and menuitems
+-- used in core/menu, menuitems and keybinds
 function IN_TERM(cmd) return RC.vars.terminal .. " -e " .. cmd end
 
 RC.layouts = require("core.layouts")
@@ -48,3 +53,6 @@ require("deco.titlebar")
 require("deco.statusbar")
 
 require("core.signals")
+
+-- autorun
+require("session_start")

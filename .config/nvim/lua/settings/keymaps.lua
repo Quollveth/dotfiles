@@ -33,11 +33,11 @@ map("n", "o", "o<Esc>", { noremap = true, silent = true })
 map("n", "O", "O<Esc>", { noremap = true, silent = true })
 
 -- Copy line above or below
-vim.api.nvim_set_keymap("n", "Yk", "kyypj", { noremap = true, silent = true })
+map("n", "Yk", "kyypj", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "Yj", "jyypk", { noremap = true, silent = true })
 
 -- Source current file
-vim.api.nvim_set_keymap(
+map(
 	"n",
 	"<leader>so",
 	":luafile %<CR>",

@@ -41,12 +41,6 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 # top process by cpu
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
-
-# lazy
-alias cls='clear'
-alias clr='clear'
-
-
 # cat path variables
 alias path='echo -e ${PATH//:/\\n}'
 

@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-setxkbmap -layout br,pt &
-find ~/.config/i3/ -name '.*' -prune -o -print | entr i3-msg reload &
-dunst &
-polybar -r &
-picom &
-$SCRIPTS_DIR/monitorLayout &
-feh --bg-fill $WALLPAPERS_DIR/perfect_blue.jpg

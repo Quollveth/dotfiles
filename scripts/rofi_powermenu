@@ -56,8 +56,10 @@ run_cmd() {
                 i3-msg exit
             elif pgrep -x "xfce4-session" > /dev/null; then
                 xfce4-session-logout --logout
+            elif pgrep -x "awesome" > /dev/null; then
+                awesome-client "awesome.quit()"
             else
-				notify-send "only works with i3 and xfce, edit script to add your own session"
+                notify-send "only works with i3 and xfce, edit script to add your own session"
                 exit 1
             fi
         fi
@@ -67,13 +69,13 @@ run_cmd() {
 }
 
 run_kill(){
-	# reversed order after i accidentally pressed enter one extra time and killed systemd
-	# pls do not kill systemd
+    # reversed order after i accidentally pressed enter one extra time and killed systemd
+    # pls do not kill systemd
     ps -u $USER -o pid,comm | tail -n +2 | tac | rofi \
         -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 500px;}' \
-		-theme-str 'inputbar{children:["entry"];}' \
-		-dmenu -i -c -l 10 \
-		-p 'Running' \
+        -theme-str 'inputbar{children:["entry"];}' \
+        -dmenu -i -c -l 10 \
+        -p 'Running' \
         -theme ${dir}/${theme}.rasi \
         | awk '{print $1}' | xargs -r kill
 }
